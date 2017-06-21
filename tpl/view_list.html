@@ -1,0 +1,50 @@
+
+
+<h1 class="page-header"><b>{{subtitle}}</b>   <div class="order fR">排序：<span class="glyphicon glyphicon-arrow-up" aria-hidden="true"></span>   <span class="glyphicon glyphicon-arrow-down" aria-hidden="true"></span></div></h1>
+
+
+
+<div class="list-group" ng-repeat="item in subjects | filter: search">
+	<a href="#/details/{{item.id}}" class="list-group-item" >
+		<span class="badge">{{item.rating.average}}</span>
+		<div class="media">
+			<div class="media-left">
+				<img class="media-object" ng-src="{{item.images.small}}" alt="{{item.title}}">
+			</div>
+			<div class="media-body">
+				<h2 class="media-heading">{{item.title}}</h2>
+				<p>导演：<span ng-repeat="directors in item.directors">{{directors.name}} <i ng-if="!$last">、</i></span> 　　领衔主演：{{item.casts[0].name}} </p>
+				<p>类型：{{item.genres.join('、')}}   </p> 　
+			</div>
+		</div>
+	</a>
+
+</div>
+
+	<p>共{{totalCount}}条记录  共{{totalPages}}页</p>
+
+
+	<ul class="pager">
+		<li ng-class="{disabled:currentPage<=1}"><a ng-click="goPage(currentPage-1)">前一页</a></li>
+		<li ng-class="{disabled:currentPage>=totalCount}"><a ng-click="goPage(currentPage+1)">下一页</a></li>
+	</ul>
+
+
+
+
+<nav aria-label="Page navigation" class="pages_content">
+	<ul class="pagination" id="pages">
+
+	</ul>
+</nav>
+
+
+<div class="cover" ng-show="loading">
+	<div class="load1">
+		<div class="rect1"></div>
+		<div class="rect2"></div>
+		<div class="rect3"></div>
+		<div class="rect4"></div>
+		<div class="rect5"></div>
+	</div>
+</div>
