@@ -54,8 +54,7 @@
 						$scope.subjects = data.subjects;
 						$scope.totalCount = data.total;
 						$scope.totalPages = Math.ceil($scope.totalCount/count);
-
-						console.log($scope.totalPages)
+						
 
 						$scope.loading=false;
 
